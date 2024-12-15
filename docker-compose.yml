@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  weather-app:
+    build: .
+    environment:
+      - WEATHER_API_KEY=${WEATHER_API_KEY}
+      - DB_CONNECTION=postgresql://weather_user:weather_password@postgres:5432/weather_db
+    depends_on:
+      - postgres
+    restart: "no"
+
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=weather_user
+      - POSTGRES_PASSWORD=weather_password
+      - POSTGRES_DB=weather_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./create_weather_table.sql:/docker-entrypoint-initdb.d/create_weather_table.sql
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data: 

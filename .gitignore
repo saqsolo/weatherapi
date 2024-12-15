@@ -1,0 +1,11 @@
+.venv
+.env
+__pycache__/
+*.pyc
+.DS_Store
+*.ipynb
+/tests/__pycache__/
+.coverage
+.pytest_cache/
+docker-compose-test.yml
+.dockerignore

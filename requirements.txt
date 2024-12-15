@@ -1,0 +1,8 @@
+https://github.com/weatherapicom/python/archive/master.zip#egg=weatherapipython
+sqlalchemy
+pandas
+psycopg2-binary
+python-dotenv
+pytest
+pytest-mock
+pytest-cov 
